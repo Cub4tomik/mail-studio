@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mail Studio — Créateur d’emails</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><div class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M3.5 6.5h17a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1h-17a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1Z"/><path d="m3 8 8.2 6.1a1.35 1.35 0 0 0 1.6 0L21 8"/></svg></div><div><strong>Mail Studio</strong><span>Créateur d’emails</span></div></div>
+    <div class="top-actions"><button class="ghost-btn" id="loadProjectBtn">Ouvrir</button><button class="ghost-btn" id="saveProjectBtn">Enregistrer</button><button class="ghost-btn" id="resetBtn">Réinitialiser</button><button class="primary-btn" id="copyBtn">Copier le HTML <span>⌘C</span></button><input id="projectFile" type="file" accept="application/json,.json" hidden></div>
+  </header>
+  <main class="app-shell">
+    <aside class="sidebar">
+      <div class="sidebar-head"><div><h1>Bibliothèque</h1><p>Glissez un bloc dans votre email</p></div><span class="count" id="moduleCount">0</span></div>
+      <div class="library-tabs"><button class="active" id="blocksTab">Blocs</button><button id="templatesTab">Modèles</button></div>
+      <label class="search"><span>⌕</span><input id="searchInput" type="search" placeholder="Rechercher un module…"></label>
+      <div class="module-list" id="moduleList"></div>
+      <div class="tip"><span>💡</span><p><b>Astuce</b><br>Vous pouvez aussi cliquer sur un module pour l’ajouter à la fin.</p></div>
+    </aside>
+    <section class="workspace">
+      <div class="workspace-head"><div><div class="eyebrow">NOUVEAU MESSAGE</div><h2>Composez votre email</h2><p>Réorganisez les blocs et personnalisez le contenu directement dans l’aperçu.</p></div><div class="status"><i></i><span id="saveStatus">Modifications enregistrées</span></div></div>
+      <div class="canvas-area">
+        <div class="email-frame">
+          <div class="email-toolbar"><span class="traffic"><i></i><i></i><i></i></span><span class="preview-label">APERÇU DE L’EMAIL</span><button id="previewBtn" class="toolbar-btn">↗ Aperçu</button></div>
+          <div class="email-preview" id="emailPreview"></div>
+          <div class="drop-zone" id="dropZone"><span>＋</span><b>Déposez un module ici</b><small>ou cliquez dans la bibliothèque pour l’ajouter</small></div>
+        </div>
+      </div>
+    </section>
+    <aside class="inspector"><div class="inspector-head"><span class="eyebrow">ÉDITION</span><h3>Votre composition</h3></div><div class="stats"><div><strong id="blockCount">0</strong><span>blocs</span></div><div><strong id="charCount">0</strong><span>caractères</span></div></div><div class="inspector-card"><div class="card-title">Comment ça marche ?</div><ol><li><b>Ajoutez</b> les modules depuis la bibliothèque</li><li><b>Réorganisez</b> les blocs</li><li><b>Sélectionnez</b> un texte pour le mettre en forme</li><li><b>Copiez</b> le HTML final dans votre messagerie</li></ol></div><div class="palette-card"><div class="card-title">Palette Université</div><p>Appliquer une ambiance aux blocs et aux modèles.</p><div class="palette-list" id="paletteList"></div><div class="custom-colors"><label>Couleur principale <input id="primaryColor" type="color" value="#003366"></label><label>Couleur d’accent <input id="accentColor" type="color" value="#8dd3f6"></label><button class="mini-btn" id="applyCustomPalette">Appliquer</button></div></div><button class="outline-btn" id="downloadBtn">↓ Télécharger le HTML</button><p class="privacy">Tout reste dans votre navigateur.<br>Aucun contenu n’est envoyé en ligne.</p></aside>
+  </main>
+  <div class="toast" id="toast">HTML copié dans le presse-papiers ✓</div>
+  <div class="format-toolbar" id="formatToolbar"><button data-command="bold"><b>G</b></button><button data-command="italic"><i>I</i></button><button data-command="underline"><u>S</u></button><span></span><button id="linkCommand">↗</button></div>
+  <div class="modal-backdrop" id="modal"><div class="modal preview-modal"><button class="close" id="closeModal">×</button><div class="eyebrow">APERÇU FINAL</div><h2>Votre email</h2><iframe id="previewFrame" title="Aperçu final de l’email"></iframe></div></div>
+  <div class="modal-backdrop" id="configModal"><div class="modal config-modal"><button class="close" id="closeConfig">×</button><div class="eyebrow">PERSONNALISATION</div><h2 id="configTitle">Configurer le bloc</h2><p class="config-intro">Modifiez les éléments de ce module directement ici.</p><form id="configForm"><div id="configFields"></div><div class="config-actions"><button type="button" class="ghost-btn" id="cancelConfig">Annuler</button><button type="submit" class="primary-btn">Enregistrer</button></div></form></div></div>
+  <script src="modules.js"></script><script src="templates.js"></script><script src="app.js"></script>
+</body>
+</html>
