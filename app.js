@@ -99,6 +99,11 @@
   $('#resetBtn').addEventListener('click',()=>{if(confirm('Réinitialiser avec la composition de base ?')){state.blocks=makeDefaultBlocks().map(block=>({...block,html:recolorHtml(block.html,palettes.unistra,state.palette)}));render();flash('Composition réinitialisée ✓')}});
   $('#previewBtn').addEventListener('click',()=>{$('#previewFrame').srcdoc=fullHtml();$('#modal').classList.add('open')});$('#closeModal').addEventListener('click',()=>$('#modal').classList.remove('open'));$('#modal').addEventListener('click',e=>{if(e.target.id==='modal')e.target.classList.remove('open')});
   $('#configForm').addEventListener('submit',saveConfig); $('#closeConfig').addEventListener('click',()=>$('#configModal').classList.remove('open')); $('#cancelConfig').addEventListener('click',()=>$('#configModal').classList.remove('open')); $('#configModal').addEventListener('click',e=>{if(e.target.id==='configModal')e.target.classList.remove('open')});
+  const docsModal=$('#docsModal');
+  $('#docsBtn').addEventListener('click',()=>docsModal.classList.add('open'));
+  $('#closeDocs').addEventListener('click',()=>docsModal.classList.remove('open'));
+  docsModal.addEventListener('click',e=>{if(e.target===docsModal)docsModal.classList.remove('open')});
+  docsModal.querySelectorAll('.docs-nav a').forEach(link=>link.addEventListener('click',e=>{e.preventDefault();const target=$(link.getAttribute('href'));target?.scrollIntoView({behavior:'smooth',block:'start'})}));
   const formatToolbar=$('#formatToolbar');
   preview.addEventListener('mouseup',()=>{const selection=window.getSelection();if(selection && selection.toString().trim() && preview.contains(selection.anchorNode)){const range=selection.getRangeAt(0).getBoundingClientRect();formatToolbar.style.left=`${Math.min(window.innerWidth-190,Math.max(8,range.left+range.width/2-90))}px`;formatToolbar.style.top=`${Math.max(8,range.top-48)}px`;formatToolbar.classList.add('visible')}});
   document.addEventListener('mousedown',e=>{if(!e.target.closest('#formatToolbar'))formatToolbar.classList.remove('visible')});
