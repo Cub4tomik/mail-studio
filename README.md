@@ -27,12 +27,9 @@ Le bouton **Aperçu** ouvre maintenant une version isolée de l’email, sans po
 Le projet contient le workflow `.github/workflows/deploy-pages.yml` pour publier automatiquement l’application avec GitHub Pages.
 
 1. Créer un dépôt **public** sur [github.com](https://github.com), par exemple `mail-studio` — sans README ni fichiers supplémentaires.
-2. Dans ce dossier, initialiser Git et créer le premier commit :
+2. Le dépôt local est déjà initialisé et le premier commit est déjà créé. Dans ce dossier, ajouter le dépôt distant puis pousser le projet :
 
    ```bash
-   git init -b main
-   git add .
-   git commit -m "Initialiser Mail Studio"
    git remote add origin https://github.com/VOTRE_COMPTE/mail-studio.git
    git push -u origin main
    ```
