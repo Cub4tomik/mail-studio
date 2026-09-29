@@ -20,6 +20,7 @@ Ouvrir `index.html` dans un navigateur. Aucun serveur, compte ou installation n�
 - utiliser **Enregistrer** pour sauvegarder la composition dans un fichier `.mailstudio.json`, puis **Ouvrir** pour la reprendre plus tard ;
 - choisir une palette institutionnelle ou définir ses propres couleurs dans le panneau de droite.
 - ouvrir **Documentation** en haut de l’application pour consulter le guide complet, mis à jour avec les fonctionnalités disponibles.
+- consulter le pied de page pour les informations d’éditeur et de transparence.
 
 Le bouton **Aperçu** ouvre maintenant une version isolée de l’email, sans poignées ni outils d’édition, avec la structure exacte utilisée pour l’export HTML.
 
